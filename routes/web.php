@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('shippers', 'Admin\ShippersController');
+// Route::resource('photos', 'PhotoController')->name('photos.index');
+
+// Route::middleware('auth')->prefix('admin')->namespace('Admin')->group(function(){
+//     Route::resource('artigos', 'ArtigosController')->middleware('can:eAutor');
+//     Route::resource('usuarios', 'UsuariosController')->middleware('can:eAdmin');
+//     Route::resource('autores', 'AutoresController')->middleware('can:eAdmin');
+//     Route::resource('adm', 'AdminController')->middleware('can:eAdmin');
+// });

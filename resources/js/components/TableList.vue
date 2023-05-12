@@ -84,19 +84,20 @@
 
                 ordem = ordem.toLowerCase();
                 ordemCol = parseInt(ordemCol);
-
-                if (ordem == "asc") {
-                    lista.sort(function(a,b) {
-                        if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) { return 1; }
-                        if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) { return -1; }
-                        return 0;
-                    });
-                } else {
-                    lista.sort(function(a,b) {
-                        if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) { return 1; }
-                        if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) { return -1; }
-                        return 0;
-                    });
+                if (lista.length > 0) {
+                    if (ordem == "asc") {
+                        lista.sort(function(a,b) {
+                            if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) { return 1; }
+                            if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) { return -1; }
+                            return 0;
+                        });
+                    } else {
+                        lista.sort(function(a,b) {
+                            if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) { return 1; }
+                            if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) { return -1; }
+                            return 0;
+                        });
+                    }
                 }
 
                 if (this.buscar) {
@@ -153,5 +154,7 @@
 </script>
 
 <style media="screen">
-
+    tbody tr th{
+        font-weight: normal;
+    }
 </style>

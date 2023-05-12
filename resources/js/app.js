@@ -9,7 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
-import Vuex from 'Vuex';
+import Vuex from 'vuex';
 Vue.use (Vuex);
 
 /**
@@ -38,6 +38,7 @@ Vue.component('modal-link-component', require('./components/modal/ModalLink.vue'
 Vue.component('table-list-component', require('./components/TableList.vue').default);
 Vue.component('tabela-lista-component', require('./components/TabelaLista.vue').default);
 Vue.component('formulario-component', require('./components/Formulario.vue').default);
+Vue.component('modalvue-component', require('./components/Modalvue.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -45,6 +46,7 @@ Vue.component('formulario-component', require('./components/Formulario.vue').def
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// import { createStore } from 'vuex'
 
 const store = new Vuex.Store({
     state:{
@@ -57,8 +59,9 @@ const store = new Vuex.Store({
     }
 });
 
-
 const app = new Vue({
     el: '#app',
     store,
 });
+
+// app.use(store);
