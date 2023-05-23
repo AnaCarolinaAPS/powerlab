@@ -37,14 +37,21 @@
                     </div>
                 </div>
             </formulario-component>
-            <button form="formSalvar" class="btn btn-info">Salvar</button>
-            <button form="formSalvar" class="btn btn-danger">Excluir</button>
+            <div class="row">
+                <div class="col-md-6">
+                    <button form="formSalvar" class="btn btn-info">Salvar</button>
+                </div>
+                <div class="col-md-6">
+                    <button form="formSalvar" class="btn btn-danger float-right">Excluir</button>
+                </div>
+            </div>
         </panel-component>
         <panel-component>
             <div class="row">
+                {{-- <p>{{ json_encode($listaModelo) }}</p> --}}
                 <div class="col-md-12">
                     <table-list-component
-                        v-bind:titulos="['#', 'Fecha', 'Servicio', 'Precio', 'Activo']"
+                        v-bind:titulos="['#', 'Fecha', 'Servicio', 'Precio', 'Tipo', 'Activo']"
                         v-bind:itens="{{ json_encode($listaModelo) }}"
                         ordem="desc" ordemcol="0"
                         criar="#adicionar" detalhe="/fornecedores/" editar="/fornecedores/" deletar="/fornecedores/" token="{{ csrf_token() }}"

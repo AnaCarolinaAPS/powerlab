@@ -321,6 +321,7 @@ return [
                 [
                     'text' => 'Fornecedores',
                     'url'  => 'fornecedors',
+                    'active' => ['fornecedors', 'fornecedors/*'],
                 ],
                 [
                     'text' => 'Freteiros',

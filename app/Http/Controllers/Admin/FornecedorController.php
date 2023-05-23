@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Fornecedor;
+use App\FornecedorServico;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
@@ -70,7 +71,7 @@ class FornecedorController extends Controller
         ]);
         // $listaModelo = Fornecedor::listaShippers();
         $fornecedor = Fornecedor::find($id);
-        $listaModelo = Fornecedor::select('id', 'name', 'contato', 'description')->get();
+        $listaModelo = Fornecedor::listaFornecedorServicos();
         return view('admin.fornecedores.show',compact('listaMigalhas', 'listaModelo', 'fornecedor'));
     }
 
