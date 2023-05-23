@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('shippers', 'Admin\ShippersController');
+Route::resource('warehouses', 'Admin\WarehouseController');
+Route::resource('fornecedors', 'Admin\FornecedorController');
+Route::put('/fornecedores/{id}', 'Admin\FornecedorController@update')->name('fornecedores.update');
 // Route::resource('photos', 'PhotoController')->name('photos.index');
 
 // Route::middleware('auth')->prefix('admin')->namespace('Admin')->group(function(){

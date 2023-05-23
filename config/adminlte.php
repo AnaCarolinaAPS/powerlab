@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'PowerLab',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Power</b>LAB',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -110,7 +110,7 @@ return [
         'enabled' => true,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'alt' => 'PowerLab Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -320,7 +320,7 @@ return [
                 ],
                 [
                     'text' => 'Fornecedores',
-                    'url'  => '#',
+                    'url'  => 'fornecedors',
                 ],
                 [
                     'text' => 'Freteiros',
@@ -352,7 +352,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Warehouses',
-                    'url'  => '#',
+                    'url'  => 'warehouses',
                 ],
                 [
                     'text' => 'Pacotes',

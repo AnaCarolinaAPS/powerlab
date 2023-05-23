@@ -20,6 +20,30 @@ Vue.use (Vuex);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
+// const store = new Vuex.Store({
+//     state:{
+//         itens:{}
+//     },
+//     mutations:{
+//         setItens(state,obj){
+//             state.itens = obj;
+//         }
+//     }
+// });
+
+
+const store = new Vuex.Store({
+    state: {
+        itens:{teste:"opa funcionou"}
+    },
+    mutations: {
+        setItens(state,obj) {
+            state.itens = obj;
+        }
+    }
+});
+
+
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -46,18 +70,6 @@ Vue.component('modalvue-component', require('./components/Modalvue.vue').default
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// import { createStore } from 'vuex'
-
-const store = new Vuex.Store({
-    state:{
-        itens:{}
-    },
-    mutations:{
-        setItens(state,obj){
-            state.itens = obj;
-        }
-    }
-});
 
 const app = new Vue({
     el: '#app',

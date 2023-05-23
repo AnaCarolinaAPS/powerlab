@@ -14,8 +14,8 @@ class AddShipperIdToWarehouses extends Migration
     public function up()
     {
         Schema::table('warehouses', function (Blueprint $table) {
-            $table->unsignedBigInteger('cliente_id')->nullable();
-            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->nullable()->constrained();
+            $table->unsignedBigInteger('shipper_id');
+            $table->foreign('shipper_id')->references('id')->on('shippers')->onDelete('cascade')->nullable()->constrained();
         });
     }
 
@@ -27,7 +27,8 @@ class AddShipperIdToWarehouses extends Migration
     public function down()
     {
         Schema::table('warehouses', function (Blueprint $table) {
-            //
+            $table->dropForeign(['shipper_id']);
+            $table->dropColumn('shipper_id');
         });
     }
 }

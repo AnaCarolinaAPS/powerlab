@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Warehouse;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,13 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        //
+        $listaMigalhas = json_encode([
+            // ["titulo" => "Admin", "url" => route('home')],
+            ["titulo" => "Lista de Warehouses", "url" => ""],
+        ]);
+        $listaModelo = Warehouse::listaWarehouses();
+        // $listaModelo = Warehouse::select('id', 'wr', 'description');
+        return view('admin.warehouses.index',compact('listaMigalhas', 'listaModelo'));
     }
 
     /**
@@ -44,9 +51,9 @@ class WarehouseController extends Controller
      * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function show(Warehouse $warehouse)
+    public function show($id)
     {
-        //
+        return Warehouse::find($id);
     }
 
     /**
@@ -67,9 +74,19 @@ class WarehouseController extends Controller
      * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warehouse $warehouse)
+    public function update(Request $request,  $id)
     {
-        //
+        $data = $request->all();
+        $validacao = \Validator::make($data, [
+            "name" => "required",
+            "description" => "required",
+        ]);
+
+        if ($validacao->fails()) {
+            return redirect()->back()->withErrors($validacao)->withInput();
+        }
+        Warehouse::find($id)->update($data);
+        return redirect()->back();
     }
 
     /**
@@ -78,8 +95,9 @@ class WarehouseController extends Controller
      * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warehouse $warehouse)
+    public function destroy($id)
     {
-        //
+        Warehouse::find($id)->delete();
+        return redirect()->back();
     }
 }

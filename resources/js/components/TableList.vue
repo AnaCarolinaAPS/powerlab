@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- <p>{{this.$store.state.itens}}</p> -->
         <div class="row" style="margin-bottom: 5px;">
             <div class="col-md-1">
                 <a v-if="criar && !modal" v-bind:href="criar">Criar</a>

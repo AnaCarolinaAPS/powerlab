@@ -18,4 +18,14 @@ class Warehouse extends Model
     {
         return $this->hasOne(Shipper::class);
     }
+
+    public static function listaWarehouses() {
+        $lista = DB::table('warehouses')
+                    ->join('shippers', 'shippers.id', '=', 'warehouses.shipper_id')
+                    ->select('warehouses.id', 'warehouses.date_created', 'warehouses.wr', 'shippers.name')
+                    ->whereNull('warehouses.deleted_at')
+                    ->get();
+                    // ->paginate($paginate);
+        return $lista;
+    }
 }

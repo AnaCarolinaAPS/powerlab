@@ -17,8 +17,8 @@ class CreateWarehousesTable extends Migration
             $table->id();
             $table->string('wr', 100);
             $table->dateTime('date_created');
-            $table->string('invoice', 100);
-            $table->text('description');
+            $table->string('invoice', 100)->nullable();
+            $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
